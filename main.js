@@ -127,6 +127,9 @@ function getPossibleMoves(startingSquareId, piece) {
     if (piece.classList.contains("pawn")) { // if Piece is a pawn
         getPawnMoves(startingSquareId, pieceColor); // Determine legal moves for pawns
     }
+    if (piece.classList.contains("knight")) {
+        getKnightMoves(startingSquareId, pieceColor);
+    }
 
 }
 
@@ -143,31 +146,30 @@ function isSquareOccupied (square) {
 }
 
 
-
-
-
-function getPawnMoves(startingSquareId, pieceColor) {
+function getPawnMoves(startingSquareId, pieceColor) { 
+    // Starting square ID: id of square where pawn is located, "e2"
+    // pieceColor is color of pawn, white or black
     checkPawnDiagonalCapture(startingSquareId, pieceColor);
     checkPawnForwardMoves(startingSquareId, pieceColor);
 }
 function checkPawnDiagonalCapture(startingSquareId, pieceColor) {
-    const file = startingSquareId.charAt(0);
-    const rank = startingSquareId.charAt(1);
-    const rankNumber = parseInt(rank);
-    const direction = pieceColor == "white" ? 1 : -1;
+    const file = startingSquareId.charAt(0); // Extract file (column) from square ID (eg. "e" from e2)
+    const rank = startingSquareId.charAt(1); // Extract rank (row) from square ID (eg. "2" from e2)
+    const rankNumber = parseInt(rank); // convert rank into number - "2" -> 2
+    const direction = pieceColor == "white" ? 1 : -1; // Determine direction of movement, white move positively up, while black moves down which is negative
 
     // Check the two diagonal squares in front of the pawn
     let currentRank = rankNumber + direction;
 
-    for (let i = -1; i <= 1; i += 2) {
-        let currentFile = String.fromCharCode(file.charCodeAt(0) + i);
-        if (currentFile >= "a" && currentFile <= "h") {
-            let currentSquareId = currentFile + currentRank;
-            let currentSquare = document.getElementById(currentSquareId);
-            let squareContent = isSquareOccupied(currentSquare);
+    for (let i = -1; i <= 1; i += 2) { // Loop through two diagonal directions (-1 for left, +1 for right)
+        let currentFile = String.fromCharCode(file.charCodeAt(0) + i); // Calculate the file of the diagonal square
+        if (currentFile >= "a" && currentFile <= "h") { // Ensure file is within board space
+            let currentSquareId = currentFile + currentRank; // Combine file and rank to get the square ID
+            let currentSquare = document.getElementById(currentSquareId); // get the square element
+            let squareContent = isSquareOccupied(currentSquare); // check if square is occupied
 
-            if (squareContent != "blank" && squareContent != pieceColor) {
-                legalSquares.push(currentSquareId);
+            if (squareContent != "blank" && squareContent != pieceColor) { // if square is occupied by opponent's piece
+                legalSquares.push(currentSquareId); // Add the square to list of legal moves because pawns can capture diagonally
             }
         }
     }
@@ -184,19 +186,55 @@ function checkPawnForwardMoves(startingSquareId, pieceColor) {
     let currentSquare = document.getElementById(currentSquareId);
     let squareContent = isSquareOccupied(currentSquare);
 
-    if (squareContent == "blank") {
-        legalSquares.push(currentSquareId);
+    if (squareContent == "blank") { // if the square is empty
+        legalSquares.push(currentSquareId); // add square to list of legal space because pawns can move forward if not blocked
 
         // Check if the pawn can move two squares forward from its starting position
         if ((pieceColor == "white" && rankNumber == 2) || (pieceColor == "black" && rankNumber == 7)) {
-            currentRank += direction;
-            currentSquareId = file + currentRank;
-            currentSquare = document.getElementById(currentSquareId);
-            squareContent = isSquareOccupied(currentSquare);
+            currentRank += direction; // Move 1 more rank forward
+            currentSquareId = file + currentRank; // get new square ID
+            currentSquare = document.getElementById(currentSquareId); // get square element
+            squareContent = isSquareOccupied(currentSquare); // check if square is occupied
 
             if (squareContent == "blank") {
                 legalSquares.push(currentSquareId);
             }
         }
     }
+}
+
+function getKnightMoves(startingSquareId, pieceColor) {
+    const file = startingSquareId.charCodeAt(0)-97;
+    // Explanation:
+    // 'startingSquareId.charCodeAt(0)' gets the ASCII code of the file (eg, 'a' -> 97, 'b' -> 98)
+    // Subtracting 97 makes it 0, so 'a' -> 1, 'b' -> 2
+    const rank = startingSquareId.charAt(1); // Extracts the rank
+    const rankNumber = parseInt(rank); // convert rank to number
+    let currentFile = file; // (0-7) 
+    let currentRank = rankNumber; // (1-8) 
+
+    // Knights moves in an "L" shape. Two square in one direction and then one square perpendicular to it
+    const moves = [
+        // Each array represets [file offset, rank offset]
+        [-2,1], [-1,2], [1,2], [2,1], // Moves in positive direction
+        [2,-1], [1,-2], [-1,-2], [-2,-1] // Moves in negative direction
+    ];
+    moves.forEach((move) => {
+        currentFile = file + move[0]; // calucate new file by extract that array value
+        currentRank = rankNumber + move[1]; // same for rank
+        if (currentFile >= 0 && currentFile <= 7 && currentRank > 0 && currentRank <= 8) { // Ensure moves stay inside the board because knight may escape
+            // files range from 0 - 7 (a to h), rank ranges from 1 to 8
+
+            // Convert currentFile back into letter using String.fromCharCode(currentFile + 97), then add current rank which is the new rank position where the knight is dropped
+            let currentSquareId = String.fromCharCode(currentFile + 97) + currentRank; 
+            let currentSquare = document.getElementById(currentSquareId);
+            let squareContent = isSquareOccupied(currentSquare);
+            if (squareContent != "blank" && squareContent == pieceColor)
+                // if square is occupied by same color piece, invaild move
+                // BUT, if square is empty or occupied by opponent, it is vaild. Hence push it in legal moves
+                return; 
+                legalSquares.push(String.fromCharCode(currentFile + 97) + currentRank);
+        }
+
+    });
 }
