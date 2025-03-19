@@ -130,7 +130,9 @@ function getPossibleMoves(startingSquareId, piece) {
     if (piece.classList.contains("knight")) {
         getKnightMoves(startingSquareId, pieceColor);
     }
-
+    if (piece.classList.contains("rook")) {
+        getRookMoves(startingSquareId, pieceColor);
+    }
 }
 
 // Enable capturing and prevent pieces from moving to occupied squares
@@ -237,4 +239,99 @@ function getKnightMoves(startingSquareId, pieceColor) {
         }
 
     });
+}
+
+function getRookMoves(startingSquareId, pieceColor) {
+    moveToEighthRank(startingSquareId, pieceColor);
+    moveToFirstRank(startingSquareId, pieceColor);
+    moveToAFile(startingSquareId, pieceColor);
+    moveToHFile(startingSquareId, pieceColor);
+};
+function moveToEighthRank(startingSquareId, pieceColor) {
+    const file = startingSquareId.charAt(0); // Extract the file (column)
+    const rank = startingSquareId.charAt(1); // Extract the rank (row)
+    let currentRank = parseInt(rank); // Convert rank to a number
+
+    while (currentRank < 8) { // Continue until reaching the 8th rank
+        currentRank++; // Move one rank up
+        let currentSquareId = file + currentRank; // Combine file and rank to get the square ID
+        let currentSquare = document.getElementById(currentSquareId); // Get the square element
+        let squareContent = isSquareOccupied(currentSquare); // Check if the square is occupied
+
+        if (squareContent != "blank" && squareContent == pieceColor) {
+            return; // Stop if the square is occupied by a piece of the same color
+        }
+
+        legalSquares.push(currentSquareId); // Add the square to the list of legal moves
+
+        if (squareContent != "blank" && squareContent != pieceColor) {
+            return; // Stop if the square is occupied by an opponent's piece (capture)
+        }
+    }
+}
+function moveToFirstRank(startingSquareId, pieceColor) {
+    const file = startingSquareId.charAt(0); // Extract the file (column)
+    const rank = startingSquareId.charAt(1); // Extract the rank (row)
+    let currentRank = parseInt(rank); // Convert rank to a number
+
+    while (currentRank > 1) { // Continue until reaching the 1st rank
+        currentRank--; // Move one rank down
+        let currentSquareId = file + currentRank; // Combine file and rank to get the square ID
+        let currentSquare = document.getElementById(currentSquareId); // Get the square element
+        let squareContent = isSquareOccupied(currentSquare); // Check if the square is occupied
+
+        if (squareContent != "blank" && squareContent == pieceColor) {
+            return; // Stop if the square is occupied by a piece of the same color
+        }
+
+        legalSquares.push(currentSquareId); // Add the square to the list of legal moves
+
+        if (squareContent != "blank" && squareContent != pieceColor) {
+            return; // Stop if the square is occupied by an opponent's piece (capture)
+        }
+    }
+}
+function moveToARank(startingSquareId, pieceColor) {
+    const file = startingSquareId.charAt(0); // Extract the file (column)
+    const rank = startingSquareId.charAt(1); // Extract the rank (row)
+    let currentFile = file; // Initialize the current file
+
+    while (currentFile > "a") { // Continue until reaching the "a" file
+        currentFile = String.fromCharCode(currentFile.charCodeAt(0) - 1); // Move one file to the left
+        let currentSquareId = currentFile + rank; // Combine file and rank to get the square ID
+        let currentSquare = document.getElementById(currentSquareId); // Get the square element
+        let squareContent = isSquareOccupied(currentSquare); // Check if the square is occupied
+
+        if (squareContent != "blank" && squareContent == pieceColor) {
+            return; // Stop if the square is occupied by a piece of the same color
+        }
+
+        legalSquares.push(currentSquareId); // Add the square to the list of legal moves
+
+        if (squareContent != "blank" && squareContent != pieceColor) {
+            return; // Stop if the square is occupied by an opponent's piece (capture)
+        }
+    }
+}
+function moveToHRank(startingSquareId, pieceColor) {
+    const file = startingSquareId.charAt(0); // Extract the file (column)
+    const rank = startingSquareId.charAt(1); // Extract the rank (row)
+    let currentFile = file; // Initialize the current file
+
+    while (currentFile < "h") { // Continue until reaching the "h" file
+        currentFile = String.fromCharCode(currentFile.charCodeAt(0) + 1); // Move one file to the right
+        let currentSquareId = currentFile + rank; // Combine file and rank to get the square ID
+        let currentSquare = document.getElementById(currentSquareId); // Get the square element
+        let squareContent = isSquareOccupied(currentSquare); // Check if the square is occupied
+
+        if (squareContent != "blank" && squareContent == pieceColor) {
+            return; // Stop if the square is occupied by a piece of the same color
+        }
+
+        legalSquares.push(currentSquareId); // Add the square to the list of legal moves
+
+        if (squareContent != "blank" && squareContent != pieceColor) {
+            return; // Stop if the square is occupied by an opponent's piece (capture)
+        }
+    }
 }
