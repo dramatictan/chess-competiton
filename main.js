@@ -138,6 +138,9 @@ function getPossibleMoves(startingSquareId, piece) {
     if (piece.classList.contains("queen")) {
         getQueenMoves(startingSquareId, pieceColor);
     }
+    if (piece.classList.contains("king")) {
+        getKingMoves(startingSquareId, pieceColor);
+    }
 }
 
 // Enable capturing and prevent pieces from moving to occupied squares
@@ -494,5 +497,53 @@ function getQueenMoves(startingSquareId, pieceColor) {
                 break;
             }
         }
+    });
+}
+
+function getKingMoves(startingSquareId, pieceColor) {
+    // Clear the legalSquares array before calculating moves
+    legalSquares.length = 0;
+
+    // Define directions for the king's movement
+    const directions = [
+        [0, 1],   // Up
+        [0, -1],  // Down
+        [-1, 0],  // Left
+        [1, 0],   // Right
+        [1, 1],   // Diagonal up-right
+        [-1, 1],  // Diagonal up-left
+        [1, -1],  // Diagonal down-right
+        [-1, -1]  // Diagonal down-left
+    ];
+
+    // Iterate through each direction
+    directions.forEach(direction => {
+        let currentFile = startingSquareId.charCodeAt(0); // File as ASCII code (e.g., 'a' -> 97)
+        let currentRank = parseInt(startingSquareId.charAt(1)); // Rank as a number (e.g., "2" -> 2)
+
+        // Move one square in the current direction
+        currentFile += direction[0];
+        currentRank += direction[1];
+
+        // Convert file and rank back to square ID
+        const currentSquareId = String.fromCharCode(currentFile) + currentRank;
+
+        // Check if the square is within the board boundaries
+        if (currentFile < 97 || currentFile > 104 || currentRank < 1 || currentRank > 8) {
+            return; // Skip this direction if the square is outside the board
+        }
+
+        // Get the square element and check its content
+        const currentSquare = document.getElementById(currentSquareId);
+        const squareContent = isSquareOccupied(currentSquare);
+
+        if (squareContent == "blank") {
+            // If the square is empty, add it to the legal moves
+            legalSquares.push(currentSquareId);
+        } else if (squareContent != pieceColor) {
+            // If the square is occupied by an opponent's piece, add it
+            legalSquares.push(currentSquareId);
+        }
+        // If the square is occupied by a piece of the same color, do nothing
     });
 }
