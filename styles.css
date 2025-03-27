@@ -23,12 +23,13 @@ body {
     position: relative;
 }
 
+/* Chessboard squares */
 .white {
-    background-color: #f0d9b5
+    background-color: #dfe7fd; /* Light blue */
 }
 
 .black {
-    background-color: #b58863
+    background-color: #52658f; /* Dark blue */
 }
 
 .coordinate {
@@ -48,11 +49,13 @@ body {
     left: auto;
 }
 
+/* Coordinates text */
 .whiteText {
-    color: #f0d9b5
+    color: #dfe7fd; /* Matches the light blue square */
 }
+
 .blackText {
-    color: #b58863
+    color: #52658f; /* Matches the dark blue square */
 }
 
 .piece {
