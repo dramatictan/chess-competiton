@@ -81,3 +81,8 @@ body {
         font-size: 8px;
     }
 }
+
+.chessBoard.disabled {
+    pointer-events: none; /* Disable all interactions */
+    opacity: 0.5; /* Dim the board to indicate it's disabled */
+}

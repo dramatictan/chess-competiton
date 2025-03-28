@@ -3,6 +3,36 @@ let legalSquares = [];
  * This is required to store IDs of squares where a piece can legally move
  */
 
+let isGameOver = false;
+
+// Track the king position
+let whiteKingPosition = "e1"; // Initial position of the white king
+let blackKingPosition = "e8"; // Initial position of the black king
+function updateKingPosition(piece, destinationSquareId) {
+    if (piece.classList.contains("king")) {
+        if (piece.getAttribute("color") === "white") {
+            whiteKingPosition = destinationSquareId;
+        } else {
+            blackKingPosition = destinationSquareId;
+        }
+    }
+
+    // Check if the kings still exist on the board
+    const whiteKing = document.querySelector(".piece.king[color='white']");
+    const blackKing = document.querySelector(".piece.king[color='black']");
+    if (!whiteKing) {
+        console.log("Checkmate! Black wins");
+        freezeBoard();
+        return true; // game over
+    }
+    if (!blackKing) {
+        console.log("Checkmate! White wins");
+        freezeBoard();
+        return true;
+    }
+    return false; // continue game
+}
+
 let isWhiteTurn = true; // Set white turn to move first
 
 // Get all squares and pieces on the chessboard
@@ -80,6 +110,9 @@ function drag(ev) {
 
 // function to drop a piece on a square
 function drop(ev) {
+    if (isGameOver) {
+        return; // prevent moves if the game is over
+    }
     ev.preventDefault();
     // Get the ID of the piece being dragged from the dataTransfer object
     let data = ev.dataTransfer.getData("text");
@@ -119,6 +152,26 @@ function drop(ev) {
         legalSquares.length = 0; // Reset legalSquares array to 0 after making a move. Must reset to remove old legal moves to prevent incorrect behaviors
         return;
     }
+}
+
+function freezeBoard() {
+    const board = document.querySelector(".chessBoard"); // select chessboard element
+    if (board) {
+        board.classList.add("disabled")
+    }
+    // Optionally, display a game-over message
+    const message = document.createElement("div");
+    message.textContent = "Game Over! Refresh the page to play again.";
+    message.style.position = "absolute";
+    message.style.top = "50%";
+    message.style.left = "50%";
+    message.style.transform = "translate(-50%, -50%)";
+    message.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    message.style.color = "white";
+    message.style.padding = "20px";
+    message.style.borderRadius = "10px";
+    message.style.zIndex = "1000";
+    document.body.appendChild(message);
 }
 
 function getPossibleMoves(startingSquareId, piece) {
