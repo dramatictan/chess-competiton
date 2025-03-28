@@ -20,17 +20,18 @@ function updateKingPosition(piece, destinationSquareId) {
     // Check if the kings still exist on the board
     const whiteKing = document.querySelector(".piece.king[color='white']");
     const blackKing = document.querySelector(".piece.king[color='black']");
+
     if (!whiteKing) {
         console.log("Checkmate! Black wins");
-        freezeBoard();
-        return true; // game over
+        freezeBoard(); // Call freezeBoard here
+        return true; // Game over
     }
     if (!blackKing) {
         console.log("Checkmate! White wins");
-        freezeBoard();
-        return true;
+        freezeBoard(); // Call freezeBoard here
+        return true; // Game over
     }
-    return false; // continue game
+    return false; // Continue game
 }
 
 let isWhiteTurn = true; // Set white turn to move first
@@ -155,10 +156,14 @@ function drop(ev) {
 }
 
 function freezeBoard() {
-    const board = document.querySelector(".chessBoard"); // select chessboard element
+    const board = document.querySelector(".chessBoard"); // Select the chessboard element
     if (board) {
-        board.classList.add("disabled")
+        board.classList.add("disabled"); // Add the disabled class to the chessboard
+        console.log("Board is now disabled."); // Debugging log
+    } else {
+        console.error("Chessboard element not found!"); // Debugging log
     }
+
     // Optionally, display a game-over message
     const message = document.createElement("div");
     message.textContent = "Game Over! Refresh the page to play again.";
