@@ -1,8 +1,17 @@
 #gameboard {
     width: 320px;
     height: 320px;
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; /* Use flexbox to arrange squares */
+    flex-wrap: wrap; /* Allow squares to wrap into rows */
+    /*
+    display: flex:
+    The #gameboard container becomes a flex container.
+    The child elements (.square) are arranged in a row by default.
+
+    flex-wrap: wrap:
+    Since the #gameboard container has a fixed width of 320px, only 8 squares (each 40px wide) can fit in a single row.
+    When the 9th square is added, it automatically wraps to the next row, creating the 8x8 grid.
+    */
 }
 
 .square {
