@@ -12,17 +12,45 @@
     Since the #gameboard container has a fixed width of 320px, only 8 squares (each 40px wide) can fit in a single row.
     When the 9th square is added, it automatically wraps to the next row, creating the 8x8 grid.
     */
+    border: 2px solid #333;
+    box-sizing: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .square {
     height: 40px;
     width: 40px;
+    position: relative;
+}
+
+/* Resize chess images to fit in the square */
+.square svg {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    position: relative;
+    z-index: -9; /* Push layer svg behind other element */
+}
+
+path {
+    position: relative;
+    z-index: -10;  /* Push the path even further behind */
+}
+
+.piece {
+    position: relative;
+    z-index: 9;  /* Bring the piece to the front */
 }
 
 .beige {
-    background-color: rgb(110, 110, 98);
+    background-color: #f5deb3;
+}
+.brown {
+    background-color:  #8b4513;
 }
 
-.brown {
-    background-color: rgb(169, 43, 43);
+.black {
+    fill: #2c2c2c
+}
+.white {
+    fill: #ffffff;
 }
