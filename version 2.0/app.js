@@ -102,6 +102,7 @@ function dragDrop(e) {
         if (takenByOpponent && vaild) { // capturing of piece
             e.target.parentNode.append(draggedElement); // drag piece (draggedElement) into square (parentNode)
             e.target.remove(); // Remove occupying piece
+            checkForWin();
             changePlayer();
         return;
         }
@@ -113,8 +114,9 @@ function dragDrop(e) {
         }
         if (vaild) {
             e.target.append(draggedElement)
-                changePlayer();
-                return;
+            changePlayer();
+            checkForWin();
+            return;
         }
     }
 
@@ -323,6 +325,22 @@ function checkIfVaild(target) {
                 setTimeout(() => infoDisplay.textContent = "", 2000);
             }
             break;
+        case 'king': 
+            if (
+                startId + 1 === targetId ||
+                startId - 1 === targetId ||
+                startId + width === targetId ||
+                startId - width === targetId ||
+                startId + width - 1 === targetId ||
+                startId + width + 1 === targetId ||
+                startId - width - 1  === targetId ||
+                startId - width + 1 === targetId
+            ) {
+                return true;
+            } else {
+                infoDisplay.textContent = "Illegal move, try again!";
+                setTimeout(() => infoDisplay.textContent = "", 2000);
+            }
     }
 }
 
@@ -346,4 +364,25 @@ function reverseIds() {
 function revertIds() {
     const allSquares = document.querySelectorAll(".square");
     allSquares.forEach((square, i) => square.setAttribute('square-id', i))
+}
+
+function checkForWin() {
+    const kings = document.querySelectorAll(('#king')); // Collected all kings
+    console.log(kings);
+    // If white king is missing
+    if (!kings.some(king => king.firstChild.classList.contains('white'))) {
+        infoDisplay.innerHTML('Black Wins.');
+        // Get all squares
+        const allSquares = document.querySelectorAll('.square')
+        // Convert attribute of draggable to false if anyone wins
+        allSquares.forEach(square => square.firstChild?.setAttribute('draggable', false))
+    }
+    if (!kings.some(king => king.firstChild.classList.contains('black'))) {
+        infoDisplay.innerHTML('White Wins.');
+        // Get all squares
+        const allSquares = document.querySelectorAll('.square')
+        // Convert attribute of draggable to false if anyone wins
+        allSquares.forEach(square => square.firstChild?.setAttribute('draggable', false))
+    }
+
 }
