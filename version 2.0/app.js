@@ -114,8 +114,8 @@ function dragDrop(e) {
         }
         if (vaild) {
             e.target.append(draggedElement)
-            changePlayer();
             checkForWin();
+            changePlayer();
             return;
         }
     }
@@ -367,22 +367,16 @@ function revertIds() {
 }
 
 function checkForWin() {
-    const kings = document.querySelectorAll(('#king')); // Collected all kings
-    console.log(kings);
-    // If white king is missing
+    const kings = Array.from(document.querySelectorAll('#king'))
+    console.log(kings)
     if (!kings.some(king => king.firstChild.classList.contains('white'))) {
-        infoDisplay.innerHTML('Black Wins.');
-        // Get all squares
+        infoDisplay.innerHTML = "Black player wins!"
         const allSquares = document.querySelectorAll('.square')
-        // Convert attribute of draggable to false if anyone wins
-        allSquares.forEach(square => square.firstChild?.setAttribute('draggable', false))
+        allSquares.forEach(square = square.firstChild?.setAttribute('draggable', false))
     }
     if (!kings.some(king => king.firstChild.classList.contains('black'))) {
-        infoDisplay.innerHTML('White Wins.');
-        // Get all squares
+        infoDisplay.innerHTML = "White player wins!"
         const allSquares = document.querySelectorAll('.square')
-        // Convert attribute of draggable to false if anyone wins
-        allSquares.forEach(square => square.firstChild?.setAttribute('draggable', false))
+        allSquares.forEach(square = square.firstChild?.setAttribute('draggable', false))
     }
-
 }
