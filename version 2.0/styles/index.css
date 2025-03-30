@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background-color: #1E1E2F; /* Dark Blue-Gray */
+    background: linear-gradient(180deg, #1E1E2F, #121212); /* Gradient from dark blue-gray to black */
     color: #FFFFFF; /* White text */
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -9,13 +9,14 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: #8A2BE2; /* Electric Purple */
+    background-color: #323232;
     color: #FFFFFF;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid #FFD700;
 }
 
 .navbar a {
@@ -45,3 +46,159 @@ body {
     max-height: 75px; /* Ensure the logo fits well in the navbar */
     width: auto; /* Maintain aspect ratio */
 }
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background-color: #2C2C3E; /* Darker Gray */
+    border: 1px solid #FFD700; /* Gold border */
+}
+
+.dropdown-item {
+    color: #FFFFFF;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #FFD700; /* Gold background */
+    color: #1E1E2F; /* Dark text */
+}
+
+/* Cards */
+.mode-container {
+    margin: 80px auto;
+    padding: 3rem;
+    max-width: 1200px;
+}
+
+.title-container h1 {
+    font-size: 2rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.text-container p {
+    font-size: 2rem;
+}
+
+.photo-container img {
+    display: block;
+    width: 100%;
+}
+
+.card {
+    background-color: #2C2C3E; /* Darker Gray */
+    border: 3px solid #FFD700; /* Gold border */
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7);
+}
+
+.photo-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #FFD700; /* Gold border */
+}
+
+.title-container h1 {
+    font-size: 1.8rem;
+    color: #e7c500; /* Gold */
+    text-align: center;
+}
+
+.text-container p {
+    font-size: 1.2rem;
+    color: #000000;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+}
+
+.btn-primary {
+    background-color: #FFD700 !important; /* Gold */
+    color: #1E1E2F !important; /* Dark Blue-Gray */
+    border-color: #FFD700 !important; /* Gold border */
+}
+
+.btn-primary:hover {
+    background-color: #FFC107 !important; /* Brighter Gold on hover */
+    color: #1E1E2F !important; /* Dark Blue-Gray */
+}
+
+.btn {
+    display: inline-block;
+    width: 200px;
+    background-color: #FFD700; /* Gold */
+    color: #1E1E2F; /* Dark Blue-Gray */
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 1rem auto;
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FFC107; /* Brighter Gold on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.btn a {
+    color: inherit;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer p, footer ul, footer a {
+    color: #ffffff;
+    font-size: 0.875rem;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+footer .fab {
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+footer .fab:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+footer .small {
+    font-size: 0.875rem;
+}
+
