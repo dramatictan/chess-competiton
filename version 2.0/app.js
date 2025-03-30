@@ -10,7 +10,7 @@ const infoDisplay = document.querySelector("#info-display");
 const width = 8; // Define width of chessboard, 8x8 grid
 
 let playerGo = 'black';
-playerDisplay.textContent = 'black'; // Replace text by id
+playerDisplay.textContent = 'white'; // Replace text by id
 
 // Define placement pieces at the start
 const startPieces = [
@@ -348,11 +348,11 @@ function changePlayer() {
     if (playerGo === "black") {
         reverseIds()
         playerGo = "white"
-        playerDisplay.textContent = 'white';
+        playerDisplay.textContent = 'black';
     } else {
         revertIds()
         playerGo = "black"
-        playerDisplay.textContent = 'black';
+        playerDisplay.textContent = 'white';
     }
 }
 

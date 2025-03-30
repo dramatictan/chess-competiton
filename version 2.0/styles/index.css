@@ -1,0 +1,47 @@
+/* General Styles */
+body {
+    background-color: #1E1E2F; /* Dark Blue-Gray */
+    color: #FFFFFF; /* White text */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #8A2BE2; /* Electric Purple */
+    color: #FFFFFF;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.navbar a {
+    color: #FFD700; /* Gold */
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #FF4500; /* Orange-Red */
+}
+
+/* Adjust the navbar brand spacing */
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Vertically center the logo and text */
+    gap: 5px; /* Add a small gap between the logo and the text */
+    margin: 0; /* Remove any extra margin */
+    padding: 0; /* Remove any extra padding */
+}
+
+/* Adjust the logo image */
+.navbar-brand img {
+    margin: 0; /* Remove any extra margin */
+    padding: 0; /* Remove any extra padding */
+    max-height: 75px; /* Ensure the logo fits well in the navbar */
+    width: auto; /* Maintain aspect ratio */
+}
