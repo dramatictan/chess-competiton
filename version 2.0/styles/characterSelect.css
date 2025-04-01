@@ -1,0 +1,10 @@
+#rightRectangle {
+    position: absolute; /* Position the box relative to the screen */
+    top: 50%; /* Center vertically */
+    right: 0; /* Align to the right edge */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    width: 500px; /* Set the width of the rectangle */
+    height: 1000px; /* Set the height of the rectangle */
+    background-color: #4b4b4b; /* Gold background color */
+    border: 2px solid #1E1E2F; /* Dark border */
+}

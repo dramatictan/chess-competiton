@@ -1,0 +1,44 @@
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer p, footer ul, footer a {
+    color: #ffffff;
+    font-size: 0.875rem;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+footer .fab {
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+footer .fab:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+footer .small {
+    font-size: 0.875rem;
+}

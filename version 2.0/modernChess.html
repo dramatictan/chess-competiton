@@ -4,11 +4,20 @@
         <meta charset="UTF-8">
         <title>Chess</title>
         <link rel = "stylesheet" href = "styles/styles.css">
+        <link rel = "stylesheet" href = "styles/characterSelect.css">
+        <link rel = "stylesheet" href = "styles/navbar.css">
+        <link rel = "stylesheet" href = "styles/footer.css">
     </head>
     <body>
-        <div id = "gameboard"></div>
-
-        <p>It is <span id = "player"></span>'s go. </p>
+        <div id = "rightRectangle">
+            <div class = "selectedPlayer"></div>
+            <div class = "listPlayers"></div>
+        </div>
+        
+        <div class = "gameboard-container">
+            <div id = "gameboard"></div>
+        </div>
+        <p class = "playerGoStatus">It is <span id = "player"></span>'s go. </p>
         <p id = "info-display"></p>
         
         <script src = "pieces.js"></script>

@@ -1,3 +1,14 @@
+body {
+    background:  #1E1E2F; /* Gradient from dark blue-gray to black */
+    margin: 0;
+    padding: 0;
+}
+
+.playerGoStatus {
+    color: whitesmoke;
+    padding-left: 30px;
+}
+
 #gameboard {
     width: 320px;
     height: 320px;
@@ -14,6 +25,11 @@
     */
     border: 2px solid #333;
     box-sizing: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.gameboard-container {
+    padding-top: 100px;
+    padding-left: 30px;
 }
 
 .square {
