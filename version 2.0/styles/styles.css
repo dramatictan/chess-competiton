@@ -9,6 +9,11 @@ body {
     padding-left: 30px;
 }
 
+#info-display {
+    color: whitesmoke;
+    padding-left: 30px;   
+}
+
 #gameboard {
     width: 320px;
     height: 320px;

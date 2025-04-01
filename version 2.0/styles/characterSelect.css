@@ -5,6 +5,63 @@
     transform: translateY(-50%); /* Adjust for vertical centering */
     width: 500px; /* Set the width of the rectangle */
     height: 1000px; /* Set the height of the rectangle */
-    background-color: #4b4b4b; /* Gold background color */
+    background-color: #4b4b4b; /* Dark gray background */
     border: 2px solid #1E1E2F; /* Dark border */
+    border-radius: 10px; /* Optional: Rounded corners */
+    overflow: hidden; /* Ensure content stays inside the rectangle */
+}
+
+.rightRectangleHeader {
+    background-color: #292929; /* Gold background for the header */
+    color: #ffffff; /* Dark text color */
+    text-align: center; /* Center the text horizontally */
+    padding: 20px; /* Add padding inside the header */
+    font-size: 1.0rem; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    border-bottom: 2px solid #1E1E2F; /* Optional: Add a border below the header */
+    padding-top: 150px;
+    font-family: 'Arial', sans-serif; /* Change the font */
+}
+
+/* Bot */
+#listPlayers {
+    display: flex; /* Enable flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    justify-content: space-around; /* Add spacing between items */
+    padding: 20px; /* Add padding inside the container */
+    gap: 20px; /* Add spacing between rows and columns */
+}
+
+.bot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%; /* Each bot takes up 30% of the row */
+    max-width: 150px; /* Optional: Set a max width for each bot */
+    margin: 10px 0; /* Add vertical spacing between rows */
+}
+
+.bot img {
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+
+.bot p {
+    color: #ffffff;
+    font-size: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .bot {
+        width: 45%; /* 2 bots per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .bot {
+        width: 100%; /* 1 bot per row on very small screens */
+    }
 }
