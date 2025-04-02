@@ -6,12 +6,12 @@ body {
 
 .playerGoStatus {
     color: whitesmoke;
-    padding-left: 30px;
+    padding-left: 450px;
 }
 
 #info-display {
     color: whitesmoke;
-    padding-left: 30px;   
+    padding-left: 450px;   
 }
 
 #gameboard {
@@ -34,7 +34,11 @@ body {
 
 .gameboard-container {
     padding-top: 100px;
-    padding-left: 30px;
+    padding-right: 500px;
+    display: flex; /* Use flexbox to arrange squares */
+    justify-content: center; /* Center the gameboard horizontally */
+    align-items: center; /* Center the gameboard vertically */
+    
 }
 
 .square {
