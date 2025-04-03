@@ -9,6 +9,8 @@
     border: 2px solid #1E1E2F; /* Dark border */
     border-radius: 10px; /* Optional: Rounded corners */
     overflow: hidden; /* Ensure content stays inside the rectangle */
+    position: fixed; /* Fix the position on the right side */
+    z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
 .rightRectangleHeader {
@@ -52,6 +54,33 @@
     color: #ffffff;
     font-size: 1rem;
     text-align: center;
+}
+
+/* button play */
+#playButton {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically */
+    margin-top: auto; /* Push the button to the bottom of the rectangle */
+    margin-bottom: 20px; /* Add spacing between the button and the bottom of the rectangle */
+    margin-left: 50px; /* Center the button horizontally */
+    padding: 15px 30px; /* Add padding inside the button */
+    background-color: #28a745; /* Green background */
+    color: #ffffff; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 20px; /* Rounded corners */
+    width: 80%; /* Make the button take up 80% of the rectangle's width */
+    font-size: 1.2rem; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    position: sticky;
+}
+
+#playButton:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 @media (max-width: 768px) {

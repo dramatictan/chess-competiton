@@ -4,19 +4,21 @@ body {
     padding: 0;
 }
 
-.playerGoStatus {
-    color: whitesmoke;
-    padding-left: 450px;
+.playerGoStatus, #info-display {
+    display: inline-block; /* Display elements inline */
+    margin: 0 10px; /* Add some spacing between them */
+    color: whitesmoke; /* Ensure consistent text color */
+    padding-right: 450px;
+    padding-top: 20px;
 }
 
-#info-display {
-    color: whitesmoke;
-    padding-left: 450px;   
+.game-section {
+    text-align: center; /* Center-align the text if needed */
 }
 
 #gameboard {
-    width: 320px;
-    height: 320px;
+    width: 560px; /* 60px * 8 squares */
+    height: 560px; /* 60px * 8 squares */
     display: flex; /* Use flexbox to arrange squares */
     flex-wrap: wrap; /* Allow squares to wrap into rows */
     /*
@@ -41,17 +43,18 @@ body {
     
 }
 
+/* Increase the size of each square */
 .square {
-    height: 40px;
-    width: 40px;
+    height: 70px; /* Increased from 40px */
+    width: 70px;  /* Increased from 40px */
     position: relative;
 }
 
-/* Resize chess images to fit in the square */
+/* Resize chess images to fit in the larger square */
 .square svg {
-    height: 30px;
-    width: 30px;
-    margin: 5px;
+    height: 60px; /* Increased from 30px */
+    width: 60px;  /* Increased from 30px */
+    margin: 5px;  /* Keep the margin consistent */
     position: relative;
     z-index: -9; /* Push layer svg behind other element */
 }
