@@ -2,14 +2,12 @@
 const listPlayers = document.querySelector("#listPlayers")
 const imagePlayers = document.querySelector("#imagePlayers")
 const selectedPlayer = document.querySelector("#selectedPlayer")
+const textFlavour = document.querySelector("#textFlavour")
 
 const characters = [
-    {name: "Nikocado Avocado", image: "images/character/nikocado.jpeg" , elo: 300},
-    {name: "Scout", image: "images/character/scout.jpeg" , elo: 600},
-    {name: "BOT 3", image: "images/character/martin.png" , elo: 800},
-    {name: "BOT 4", image: "images/character/martin.png" , elo: 900},
-    {name: "Spy", image: "images/character/spy.jpeg" , elo: 1000},
-    {name: "BOT 6", image: "images/character/martin.png" , elo: 1200},
+    {name: "Chelsea", image: "images/character/chelsea.jpeg", textFlavour: "She just started her chess career and is eager to learn."},
+    {name: "Harlow", image: "images/character/harlow.jpeg", textFlavour: "A busy father of two who loves chess with his children. He would lose on purpose to let them win."},
+    {name: "Elizabeth", image: "images/character/elizabeth.jpeg", textFlavour: "A victorian lady who loves chess. She is a master of the game and has a great sense of humor."},
 ]
 
 characters.forEach(character => {
@@ -21,11 +19,18 @@ characters.forEach(character => {
     botImage.alt = character.name;
 
     const botName = document.createElement("p");
-    botName.textContent = `${character.name} | ELO: (${character.elo})`;
+    botName.textContent = `${character.name}`;
 
     // Append the image and name to the bot container
     botContainer.appendChild(botImage);
     botContainer.appendChild(botName);
+
+    // Add click event listener to the bot container
+    botContainer.addEventListener("click", () => {
+        imagePlayers.innerHTML = `<img src="${character.image}" alt="${character.name}" class="selected-bot-image">`;
+        selectedPlayer.textContent = character.name;
+        textFlavour.textContent = character.textFlavour;
+    })
 
     // Append the bot container to the #listPlayers or #imagePlayers
     listPlayers.appendChild(botContainer);

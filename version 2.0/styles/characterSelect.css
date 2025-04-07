@@ -94,3 +94,35 @@
         width: 100%; /* 1 bot per row on very small screens */
     }
 }
+
+/* Style for displaying the selected bot's details */
+#imagePlayers {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#imagePlayers img.selected-bot-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Make the image circular */
+    border: 3px solid #FFD700; /* Gold border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+    margin-bottom: 10px; /* Add spacing below the image */
+}
+
+#selectedPlayer {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFD700; /* Gold text color */
+    margin-top: 10px;
+}
+
+#textFlavour {
+    text-align: center;
+    font-size: 1rem;
+    color: #FFFFFF; /* White text color */
+    margin-top: 10px;
+    padding: 0 15px; /* Add padding for better readability */
+    font-style: italic; /* Optional: Make the text italic for flavor */
+}
