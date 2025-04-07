@@ -82,3 +82,39 @@ path {
 .black {
     fill: #ffffff;
 }
+
+/* Style for playerGoStatus and info-display */
+.playerGoStatus, #info-display {
+    display: inline-block; /* Display them inline */
+    margin: 0 10px; /* Add balanced spacing between them */
+    padding: 10px 15px; /* Add padding for better spacing */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #2C2C3E; /* Dark gray background */
+    color: #FFD700; /* Gold text color */
+    font-weight: bold; /* Bold text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+    margin-right: 500px;
+}
+
+/* Adjust the container to center the elements below the board */
+.game-section {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align the elements horizontally */
+    margin-bottom: 30px;
+}
+
+.gameboard-container {
+    margin-bottom: 5px; /* Add spacing below the chessboard */
+}
+
+#gameboard {
+    width: 560px; /* 70px * 8 squares */
+    height: 560px; /* 70px * 8 squares */
+    display: flex; /* Use flexbox to arrange squares */
+    flex-wrap: wrap; /* Allow squares to wrap into rows */
+    border: 10px solid #c08052; /* Add a thick brown border to resemble a wooden board */
+    border-radius: 15px; /* Add rounded corners for a polished look */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+    background-color: #2C2C3E; /* Optional: Add a background color for the board */
+}
