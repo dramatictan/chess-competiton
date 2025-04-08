@@ -5,12 +5,12 @@ const selectedPlayer = document.querySelector("#selectedPlayer")
 const textFlavour = document.querySelector("#textFlavour")
 
 const characters = [
-    {name: "Nikocado Avocado", image: "images/character/nikocado avocado.jpeg", textFlavour: "Once known for dramatic mukbangs, he's now channeling that same chaotic energy into chess. Emotional, unpredictable, and surprisingly strategic when he's not mid-snack."},
-    {name: "Chelsea", image: "images/character/chelsea.jpeg", textFlavour: "She just started her chess career and is eager to learn. Full of curiosity and determination, she sees every loss as a chance to grow."},
-    {name: "Harlow", image: "images/character/harlow.jpeg", textFlavour: "A busy father of two who loves playing chess with his children. He often lets them win, finding more joy in their smiles than in victory."},
-    {name: "Elizabeth", image: "images/character/elizabeth.jpeg", textFlavour: "A Victorian lady with a sharp mind and a sharper wit. A true master of the game, she blends strategy with charm, always ready with a clever remark."},
-    {name: "Luke", image: "images/character/luke.jpeg", textFlavour: "A sharp-suited businessman who plays chess to unwind after high-stakes meetings. Calm, collected, and always three steps ahead—even when he's just playing for fun."},
-    {name: "Miss", image: "images/character/miss.jpeg", textFlavour: "Elegant and efficient, Miss is half-human, half-machine—with circuits on the left and grace on the right. She calculates ten moves ahead, but still enjoys the thrill of a human surprise."},
+    {name: "Croak", image: "images/character/croak.jpeg", textFlavour: "A talking frog who croaks with joy when capturing a piece. Surprisingly patient and zen in his playstyle.", nationality: "UK"},
+    {name: "Nik", image: "images/character/nik.jpeg", textFlavour: "Too lazy to set up the board, so he uses food as pieces. A burger for the King, fries as pawns. He may snack mid-game—but don’t let that fool you, he’s a surprisingly clever player.", nationality: "USA"},
+    {name: "Myrtle", image: "images/character/myrtle.jpeg", textFlavour: "Too fabulous to lose. Obsessed with symmetry on the board and only plays pretty moves.", nationality: "UK"},  
+    {name: "Benny", image: "images/character/benny.jpeg", textFlavour: "A toddler prodigy in diapers who calculates five moves ahead… but sometimes eats the pieces.", nationality: "Italy"},
+    {name: "Bongcloud", image: "images/character/bongcloud.jpeg", textFlavour: "He plays the Bongcloud unironically—and with terrifying confidence.", nationality: "USA"},
+    {name: "Antonie", image: "images/character/antonie.jpeg", textFlavour: "He swears he’s just really good. But with suspiciously perfect moves and frequent bathroom breaks, even the pieces are side-eyeing him", nationality: "France"},
 ]
 
 characters.forEach(character => {
