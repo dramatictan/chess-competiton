@@ -97,15 +97,55 @@ function dragDrop(e) {
     const opponentGo = playerGo === 'white' ? 'black' : 'white' // if playerGo is white, the opponent is black and vice versa
     const takenByOpponent = e.target.firstChild?.classList.contains(opponentGo); 
 
+    // Dialogue relating to character.js
+    const selectedBotName = playButton.dataset.selectedBot
+    const selectedBotDialogues = characterDialogues.find(dialogue => dialogue.name === selectedBotName)?.dialogues;
+    console.log(selectedBotDialogues); // Debug only
+    const botDialogueElement = document.querySelector("#botDialogue");
+
     if (correctGo) { // if i am the correct player
         // Must check this first
         if (takenByOpponent && vaild) { // capturing of piece
             e.target.parentNode.append(draggedElement); // drag piece (draggedElement) into square (parentNode)
             e.target.remove(); // Remove occupying piece
+
+            function getRandomDialogueToken(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            // Random dialogue for capturing pieces
+            if (playerGo === "white") {
+                let randomPieceCaptureBetween1and3 = getRandomDialogueToken(1, 3);
+                console.log(randomPieceCaptureBetween1and3);
+                const dialogueKey = `playerCapture${randomPieceCaptureBetween1and3}`;
+                const dialogue = selectedBotDialogues[dialogueKey];
+                console.log(dialogue);
+                botDialogueElement.textContent = dialogue;
+            } else if (playerGo === "black") {
+                let randomPieceCaptureBetween1and3 = getRandomDialogueToken(1, 3);
+                console.log(randomPieceCaptureBetween1and3);
+                const dialogueKey = `botCapture${randomPieceCaptureBetween1and3}`;
+                const dialogue = selectedBotDialogues[dialogueKey];
+                console.log(dialogue);
+                botDialogueElement.textContent = dialogue;
+            }
+
+            // Dialogue for Queen Capture
+            const queens = Array.from(document.querySelectorAll('#queen'));
+            console.log(queens);
+            if (!queens.some(queen => queen.firstChild.classList.contains('white'))) {
+                const dialogue = selectedBotDialogues.botQueenCapture;
+                botDialogueElement.textContent = dialogue;
+            } else if (!queens.some(queen => queen.firstChild.classList.contains('black'))) {
+                const dialogue = selectedBotDialogues.playerQueenCapture;
+                botDialogueElement.textContent = dialogue;
+            }
+
             checkForWin();
             changePlayer();
         return;
         }
+        
         // then check this
         if (taken && !takenByOpponent) { // For capturing your own pieces
             infoDisplay.textContent = "Illegal move, try again!"
@@ -370,15 +410,28 @@ function revertIds() {
 }
 
 function checkForWin() {
+    const selectedBotName = playButton.dataset.selectedBot
+    const selectedBotDialogues = characterDialogues.find(dialogue => dialogue.name === selectedBotName)?.dialogues;
+    console.log(selectedBotDialogues); // Debug only
+    const botDialogueElement = document.querySelector("#botDialogue");
+
     const kings = Array.from(document.querySelectorAll('#king'))
     console.log(kings)
     if (!kings.some(king => king.firstChild.classList.contains('white'))) {
-        infoDisplay.innerHTML = "Black player wins!"
+        infoDisplay.innerHTML = "White player wins!"
+
+        const dialogue = selectedBotDialogues.botCheckmate;
+        botDialogueElement.textContent = dialogue;
+
         const allSquares = document.querySelectorAll('.square')
         allSquares.forEach(square = square.firstChild?.setAttribute('draggable', false))
     }
     if (!kings.some(king => king.firstChild.classList.contains('black'))) {
-        infoDisplay.innerHTML = "White player wins!"
+        infoDisplay.innerHTML = "Black player wins!"
+
+        const dialogue = selectedBotDialogues.playerCheckmate;
+        botDialogueElement.textContent = dialogue;
+        
         const allSquares = document.querySelectorAll('.square')
         allSquares.forEach(square = square.firstChild?.setAttribute('draggable', false))
     }
