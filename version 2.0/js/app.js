@@ -144,7 +144,7 @@ function checkIfVaild(target) {
                 starterRow.includes(startId) && startId + width * 2 === targetId
                 || startId + width === targetId
                 || startId + width - 1 === targetId && document.querySelector(`[square-id = "${startId + width - 1}" ]`).firstChild
-                || startId + width + 1 === targetId && document.querySelector(`[square-id = "${startId + width - 1}" ]`).firstChild
+                || startId + width + 1 === targetId && document.querySelector(`[square-id = "${startId + width + 1}" ]`).firstChild
             ) {
                 return true;
             } else {
@@ -341,6 +341,9 @@ function checkIfVaild(target) {
                 infoDisplay.textContent = "Illegal move, try again!";
                 setTimeout(() => infoDisplay.textContent = "", 2000);
             }
+        default:
+            console.log('Piece movement not implemented yet.');
+            return false;
     }
 }
 

@@ -145,3 +145,46 @@
     padding: 0 15px; /* Add padding for better readability */
     font-style: italic;
 }
+
+/*** Style for the "Play" button when a bot is selected */
+.bot-greeting {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.bot-greeting p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+#backButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#backButton:hover {
+    background-color: #0056b3;
+}
+
+.bot-greeting-image {
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+#resignButton {
+    width: 100px;
+    padding: 20px 10px;
+    background-color: #dc3545; /* Red background */
+    margin-left: 20px; /* Add margin to the left */;
+}
