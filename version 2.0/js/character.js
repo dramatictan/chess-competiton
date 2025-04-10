@@ -22,7 +22,13 @@ const characterDialogues = [
         dialogues: {
             greeting: "Let's hop into it. No lily-padding around!",
             playerCapture1: "Croak! That's a leap in the right direction!",
+            playerCapture2: "That move was dirtier than a swamp toe.",
+            playerCapture3: "Touch my piece again, and I swear—no lily pad is safe.",
             botCapture1: "Snatched like a fly on a summer day.",
+            botCapture2: "Don't hate the frog, hate the game",
+            botCapture3: "Croak! That piece was practically begging to be eaten.",
+            playerQueenCapture: "You will rue this day, pond scum.",
+            botQueenCapture: "Bow before the Amphibian King.",
             playerCheckmate: "Crooooaak... My pond... my pride…",
             botCheckmate: "You tried your best, but I leapt ahead.",
         }
@@ -32,9 +38,16 @@ const characterDialogues = [
         dialogues: {
             greeting: "Hi guys… welcome back to another emotional chess breakdown.",
             playerCapture1: "I'm calling CORPORATE!!",
+            playerCapture2: "This is harassment. I'm literally shaking.",
+            playerCapture3: "Popeyes chicken sandwich is better than this.",
             botCapture1: "Caught you slipping—like I do with mozzarella sticks.",
+            botCapture2: "Don't forget to pay for my Pateron subscription, where you can see more unfiltered me not allowed on Youtube.",
+            botCapture3: "Don't worry, I'll save a piece for you.",
+            playerQueenCapture: "*grabs a broomstick aiming at you.*",
+            botCheckmate: "Check her crown, she's still here.",
             playerCheckmate: "NANCY!!!!!!!!!",
             botCheckmate: "I am always two steps ahead...",
+            botAbility: "My hands are messy and greasy, but my moves are clean.",
         }
     },
     {
@@ -42,9 +55,15 @@ const characterDialogues = [
         dialogues: {
             greeting: "Darling, let’s make this game as fabulous as my outfit.",
             playerCapture1: "Oh, darling! A move so pretty it deserves a runway.",
+            playerCapture2: "Chic *and* strategic? We love a multi-talented queen.",
+            playerCapture3: "That move had more grace than my last gala entrance.",
             botCapture1: "Oh, sweetie, that was a tragic choice.",
+            botCapture2: "Snatched—like my waist in couture.",
+            botCapture3: "Beauty *and* brains. I’m the full package.",
+            playerQueenCapture: "You didn’t just take my queen—you shattered the aesthetic!",
+            botQueenCapture: "That is Checkmate in your spirit.",
             playerCheckmate: "Oh no, my perfect symmetry!",
-            botCheckmate: "Oh, sweetie, that was a tragic choice.",
+            botCheckmate: "Oh, sweetie, that was a tragic choice. Now strike a pose and reflect.",
         }
     },
     {
@@ -52,9 +71,16 @@ const characterDialogues = [
         dialogues: {
             greeting: "Goo ga ga, I need... I need some milk...",
             playerCapture1: "Gimme it back or I CRY.",
+            playerCapture2: "WAAAH! You meanie!!",
+            playerCapture3: "That's MY toy! MINE!",
             botCapture1: "CRONCH! Mmm... spicy...",
+            botCapture2: "*Nom nom nom*—tastes like checkmate!",
+            botCapture3: "Yummy! What does bishop taste like? Weird milk?",
+            playerQueenCapture: "Queens are like my mommy. I need her!",
+            botQueenCapture: "*sobs*",
             playerCheckmate: "Huh... MOM! MOMMMMY!!!",
             botCheckmate: "You got beat by a baby! Goo goo bye bye!",
+            botAbility: "*burp*"
         }
     },
     {
@@ -62,8 +88,14 @@ const characterDialogues = [
         dialogues: {
             greeting: "Bongcloud is the only opening that matters.",
             playerCapture1: "You tryin’ so hard. Just relax, bro.",
+            playerCapture2: "That was a solid move. For someone who doesn’t believe in fun.",
+            playerCapture3: "Bro, you overthinking. Let your king breathe.",
             botCapture1: "That’s the power of king e2, baby.",
-            playerCheckmate: "I’m still winning in my heart.",
+            botCapture2: "Gone. Just like your winning chances.",
+            botCapture3: "Oops—didn’t see it, still better than your plan.",
+            playerQueenCapture: "You think you’re so clever, huh?",
+            botQueenCapture: "You polished that piece just for me? Aww, thanks.",
+            playerCheckmate: "You know, you could just play the Bongcloud too.",
             botCheckmate: "This was never about the board. It was about the journey.",
         }
     },
@@ -72,9 +104,17 @@ const characterDialogues = [
         dialogues: {
             greeting: "Just a normal, fair match. I swear.",
             playerCapture1: "Hmm, give me... 5 minutes, I need to go to the restroom.",
+            playerCapture2: "Was that supposed to be a sacrifice? I’ll be back in a sec, no worries.",
+            playerCapture3: "*blindly capture the piece*",
             botCapture1: "My... uh... brain calculated that in 0.0001s.",
+            botCapture2: "Not exactly the move I’d suggest, but... okay.",
+            botCapture3: "*nervously adjusts* I wasn’t expecting that.",
             playerCheckmate: "You were clearly using an engine. I saw it.",
+            playerQueenCapture: "No! Not my queen! I—I should've prepared better...",
+            botQueenCapture: "You... you took my queen? My precious queen... *sighs*.",
             botCheckmate: "When you’re as good as me, you don’t need help. But it helps.",
+            botAbility1: "*a sound vibrates beneath his chair.*",
+            botAbility2: "*his finger made some fast movements on the board.*",
         }
     }
 ]
