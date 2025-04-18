@@ -36,6 +36,10 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 500px; /* Fixed height for all cards */
+    display: flex; /* Use Flexbox for consistent alignment */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute content evenly */
 }
 
 .card:hover {
@@ -48,6 +52,21 @@ body {
     width: 100%;
     height: auto;
     border-bottom: 2px solid #FFD700; /* Gold border */
+}
+
+.photo-container {
+    flex: 0 0 auto; /* Prevent the image from stretching */
+}
+
+.title-container,
+.text-container {
+    flex: 1 0 auto; /* Allow these sections to grow/shrink */
+    text-align: center;
+}
+
+.btn {
+    flex: 0 0 auto; /* Prevent the button from stretching */
+    margin-top: auto; /* Push the button to the bottom */
 }
 
 .title-container h1 {

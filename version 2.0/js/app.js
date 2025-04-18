@@ -152,8 +152,17 @@ function dragDrop(e) {
             setTimeout(() => infoDisplay.textContent = "", 2000)
             return;
         }
+
         if (vaild) {
-            e.target.append(draggedElement)
+            e.target.append(draggedElement);
+
+            // Check for pawn promotion
+            if (draggedElement.id === "pawn") {
+                const targetId = e.target.getAttribute("square-id");
+                console.log("Checking for pawn promotion..."); // Debugging
+                pawnPromotion(targetId, draggedElement);
+            }
+
             checkForWin();
             changePlayer();
             return;
@@ -407,6 +416,51 @@ function reverseIds() {
 function revertIds() {
     const allSquares = document.querySelectorAll(".square");
     allSquares.forEach((square, i) => square.setAttribute('square-id', i))
+}
+
+function pawnPromotion(targetId, draggedElement) {
+    
+    console.log("Pawn promotion triggered"); // Debugging
+    console.log("Target ID:", targetId); // Debugging
+    console.log("Dragged Element:", draggedElement); // Debugging
+
+    const promotionBox = document.querySelector("#promotionBox"); // Select the promotion box container
+    const promotionalRank = playerGo === "white" ? [0, 1, 2, 3, 4, 5, 6, 7] : [56, 57, 58, 59, 60, 61, 62, 63]; // Last row for white and black pawns
+    console.log("Promotional Rank:", promotionalRank); // Debugging
+
+    if (promotionalRank.includes(Number(targetId))) {
+        console.log("Pawn is eligible for promotion"); // Debugging
+        // Display the promotion options
+        promotionBox.innerHTML = `
+            <div class="promotion-box">
+                <h3>Promote your pawn!</h3>
+                <div class="promotion-options">
+                    <button class="promotion-option" data-piece="queen">♛ Queen</button>
+                    <button class="promotion-option" data-piece="rook">♜ Rook</button>
+                    <button class="promotion-option" data-piece="bishop">♝ Bishop</button>
+                    <button class="promotion-option" data-piece="knight">♞ Knight</button>
+                </div>
+            </div>
+        `;
+        // Add event listeners to the promotion buttons
+        document.querySelectorAll(".promotion-option").forEach(button => {
+            button.addEventListener("click", (e) => {
+                const selectedPiece = e.target.closest("button").dataset.piece; // Get the selected piece from the button
+                console.log(`Promoted to: ${selectedPiece}`); // Debugging
+    
+                // Dynamically update the draggedElement based on the selected piece
+                draggedElement.id = selectedPiece; // Update the ID to match the selected piece
+                draggedElement.classList.add(selectedPiece); // Add the class for the selected piece
+                draggedElement.classList.remove("pawn"); // Remove the "pawn" class
+                draggedElement.innerHTML = selectedPiece; // Update the innerHTML to reflect the selected piece
+    
+                // Clear the promotion box
+                promotionBox.innerHTML = '';
+            });
+        });
+    } else {
+        console.log("Pawn is not eligible for promotion"); // Debugging
+    }
 }
 
 function checkForWin() {
