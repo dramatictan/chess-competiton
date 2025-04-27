@@ -1,0 +1,190 @@
+#rightRectangle {
+    position: fixed; /* Fix the rectangle on the right side */
+    top: 50%; /* Center vertically */
+    right: 0; /* Align to the right edge */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    width: 500px; /* Set the width of the rectangle */
+    height: 100%; /* Make it take the full height of the viewport */
+    background-color: #4b4b4b; /* Dark gray background */
+    border: 2px solid #1E1E2F; /* Dark border */
+    border-radius: 10px; /* Optional: Rounded corners */
+    overflow: hidden; /* Ensure content stays inside the rectangle */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+.rightRectangleHeader {
+    background-color: #292929; /* Dark gray background for the header */
+    color: #ffffff; /* White text color */
+    text-align: center; /* Center the text horizontally */
+    padding: 10px; /* Reduce padding to make the header smaller */
+    font-size: 1.2rem; /* Adjust font size for a smaller header */
+    font-weight: bold; /* Keep the text bold */
+    border-bottom: 2px solid #1E1E2F; /* Optional: Add a border below the header */
+    font-family: 'Arial', sans-serif; /* Keep the font consistent */
+}
+
+/* Bot */
+#listPlayers {
+    display: flex; /* Enable flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    justify-content: space-around; /* Add spacing between items */
+    padding: 20px; /* Add padding inside the container */
+    gap: 20px; /* Add spacing between rows and columns */
+    max-height: calc(100% - 200px); /* Adjust height to fit within the rectangle */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    scrollbar-width: thin; /* For modern browsers, make the scrollbar thinner */
+    scrollbar-color: #FFD700 #4b4b4b; /* Gold scrollbar with dark gray track */
+    flex-grow: 1; /* Allow the list to grow and take available space */
+}
+
+/* Optional: Customize the scrollbar for Webkit-based browsers (Chrome, Edge, Safari) */
+#listPlayers::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+}
+
+#listPlayers::-webkit-scrollbar-thumb {
+    background-color: #FFD700; /* Gold color for the scrollbar thumb */
+    border-radius: 10px; /* Rounded scrollbar thumb */
+}
+
+#listPlayers::-webkit-scrollbar-track {
+    background-color: #4b4b4b; /* Dark gray background for the scrollbar track */
+}
+
+.bot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%; /* Each bot takes up 30% of the row */
+    max-width: 150px; /* Optional: Set a max width for each bot */
+    margin: 10px 0; /* Add vertical spacing between rows */
+}
+
+.bot img {
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+
+.bot p {
+    color: #ffffff;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* button play */
+#playButton {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically */
+    margin-top: auto; /* Push the button to the bottom of the rectangle */
+    margin-bottom: 20px; /* Add spacing between the button and the bottom of the rectangle */
+    margin-left: 50px; /* Center the button horizontally */
+    padding: 15px 30px; /* Add padding inside the button */
+    background-color: #28a745; /* Green background */
+    color: #ffffff; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 20px; /* Rounded corners */
+    width: 80%; /* Make the button take up 80% of the rectangle's width */
+    font-size: 1.2rem; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    position: sticky;
+}
+
+#playButton:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+@media (max-width: 768px) {
+    .bot {
+        width: 45%; /* 2 bots per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .bot {
+        width: 100%; /* 1 bot per row on very small screens */
+    }
+}
+
+/* Style for displaying the selected bot's details */
+#imagePlayers {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#imagePlayers img.selected-bot-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Make the image circular */
+    border: 3px solid #FFD700; /* Gold border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+    margin-bottom: 10px; /* Add spacing below the image */
+}
+
+#selectedPlayer {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFD700; /* Gold text color */
+    margin-top: 10px;
+}
+
+#textFlavour {
+    text-align: center;
+    font-size: 1rem;
+    color: #FFFFFF; /* White text color */
+    margin-top: 10px;
+    padding: 0 15px; /* Add padding for better readability */
+    font-style: italic;
+}
+
+/*** Style for the "Play" button when a bot is selected */
+.bot-greeting {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.bot-greeting p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+#backButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#backButton:hover {
+    background-color: #0056b3;
+}
+
+.bot-greeting-image {
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+#resignButton {
+    width: 100px;
+    padding: 20px 10px;
+    background-color: #dc3545; /* Red background */
+    margin-left: 20px; /* Add margin to the left */;
+}

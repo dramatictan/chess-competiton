@@ -1,0 +1,165 @@
+body {
+    background:  #1E1E2F; /* Gradient from dark blue-gray to black */
+    margin: 0;
+    padding: 0;
+}
+
+.playerGoStatus, #info-display {
+    display: inline-block; /* Display elements inline */
+    margin: 0 10px; /* Add some spacing between them */
+    color: whitesmoke; /* Ensure consistent text color */
+    padding-right: 450px;
+    padding-top: 20px;
+}
+
+.game-section {
+    text-align: center; /* Center-align the text if needed */
+}
+
+#gameboard {
+    display: grid; /* Use grid layout */
+    width: 828px !important; /* 18 squares */
+    height: 552px !important;
+    grid-template-columns: repeat(18, 46px); /* 18 columns, each 46px wide */
+    grid-template-rows: repeat(12, 46px); /* 12 rows, each 46px tall */
+    border: 10px solid #c08052; /* Thick brown border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    background-color: #2C2C3E; /* Dark gray background */
+    width: auto; /* Let the grid size adjust automatically */
+    height: auto; /* Let the grid size adjust automatically */
+    margin: 0 auto; /* Center the gameboard horizontally */
+}
+
+.gameboard-container {
+    display: flex;
+    justify-content: center; /* Center the gameboard horizontally */
+    align-items: center; /* Center the gameboard vertically */
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box; /* Include padding and border in dimensions */
+    padding-right: 500px; /* Ensure space for the #rightRectangle */
+}
+
+/* Increase the size of each square */
+.square {
+    height: 46px; /* Square height */
+    width: 46px; /* Square width */
+    box-sizing: border-box; /* Ensure padding and border are included in the width/height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Add a faint border for better separation */
+    background-clip: padding-box; /* Ensure the shadow doesn't overlap the square's content */
+}
+
+/* Resize chess images to fit in the larger square */
+.square svg {
+    height: 40px; /* Increased from 30px */
+    width: 40px;  /* Increased from 30px */
+    margin: 5px;  /* Keep the margin consistent */
+    position: relative;
+    z-index: -9; /* Push layer svg behind other element */
+}
+
+path {
+    position: relative;
+    z-index: -10;  /* Push the path even further behind */
+}
+
+.piece {
+    position: relative;
+    z-index: 9;  /* Bring the piece to the front */
+}
+
+.beige {
+    background-color: #f5deb3;
+}
+.brown {
+    background-color:  #8b4513;
+}
+
+.white {
+    fill: #2c2c2c
+}
+.black {
+    fill: #ffffff;
+}
+
+/* Style for playerGoStatus and info-display */
+.playerGoStatus, #info-display {
+    display: inline-block; /* Display them inline */
+    margin: 0 10px; /* Add balanced spacing between them */
+    padding: 10px 15px; /* Add padding for better spacing */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #2C2C3E; /* Dark gray background */
+    color: #FFD700; /* Gold text color */
+    font-weight: bold; /* Bold text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+    margin-right: 500px;
+}
+
+/* Adjust the container to center the elements below the board */
+.game-section {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align the elements horizontally */
+    margin-bottom: 30px;
+}
+
+.gameboard-container {
+    margin-bottom: 5px; /* Add spacing below the chessboard */
+}
+
+#gameboard {
+    width: 933px; /* * 20 squares */
+    height: 513px; /* * 11 squares */
+    display: flex; /* Use flexbox to arrange squares */
+    flex-wrap: wrap; /* Allow squares to wrap into rows */
+    border: 10px solid #c08052; /* Add a thick brown border to resemble a wooden board */
+    border-radius: 15px; /* Add rounded corners for a polished look */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+    background-color: #2C2C3E; /* Optional: Add a background color for the board */
+}
+
+/* Style for the promotion box */
+.promotion-container {
+    position: relative;
+    z-index: 1000;
+}
+
+.promotion-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.promotion-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 8px;
+}
+
+.promotion-option {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 8px;
+    margin: 4px;
+    transition: transform 0.2s;
+}
+
+.promotion-option:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.cyan {
+    background-color: #8fd2ff; /* Dark blue-gray color */
+}
+.blue {
+    background-color: #424284; /* Dark blue-gray color */
+}

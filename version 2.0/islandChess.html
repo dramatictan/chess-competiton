@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Chess</title>
-        <link rel = "stylesheet" href = "styles/styles.css">
-        <link rel = "stylesheet" href = "styles/characterSelect.css">
+        <link rel = "stylesheet" href = "styles/islandChessCss/island.css">
+        <link rel = "stylesheet" href = "styles/islandChessCss/characterSelect.css">
         <link rel = "stylesheet" href = "styles/navbar.css">
         <link rel = "stylesheet" href = "styles/footer.css">
     </head>
@@ -13,31 +13,28 @@
             <div class="rightRectangleHeader">
                 <h1>Play Bots</h1>
             </div>
-
-            <section id = "characterSelect">
-                <div id = "characterSelectContainer">
-                    <div id="imagePlayers"></div>  <!--img-->
-                    <div id="selectedPlayer"></div> <!--name-->
-                    <div id = "textFlavour"></div> <!--flavortext-->
+            <section id="characterSelect">
+                <div id="characterSelectContainer">
+                    <div id="imagePlayers"></div> <!-- img -->
+                    <div id="selectedPlayer"></div> <!-- name -->
+                    <div id="textFlavour"></div> <!-- flavor text -->
                 </div>
             </section>
-
-            <div id="selectedPlayer"></div>
-            <div id="imagePlayers"></div>
             <div id="listPlayers"></div>
             <div id="playButtonContainer">
                 <button id="playButton">Play</button>
             </div>
         </div>
-        <div class = "game-section">
-            <div class = "gameboard-container">
-                <div id = "gameboard"></div>
+        
+        <div class="game-section">
+            <div class="gameboard-container">
+                <div id="gameboard"></div>
             </div>
-            <div class = "promotion-container">
-                <div id = "promotionBox"></div>
+            <div class="promotion-container">
+                <div id="promotionBox"></div>
             </div>
-            <p class = "playerGoStatus">It is <span id = "player"></span>'s go. </p>
-            <p id = "info-display"></p> 
+            <p class="playerGoStatus">It is <span id="player"></span>'s go.</p>
+            <p id="info-display"></p>
         </div>
         <script src = "js/islandChessJs/piecesIsland.js"></script>
         <script src = "js/islandChessJs/appIsland.js"></script>
